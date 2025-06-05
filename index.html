@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ホーム</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="header">
+    <div class="menu-icon"></div>
+    ホーム
+  </div>
+
+
+
+<body class="fade-in">
+
+  <div class="main">
+    <div class="connect-button">接続する</div>
+    <div class="history-item" onclick="location.href='control.html'">・さつき1234</div>
+    <div class="history-item" onclick="location.href='control.html'">・さつき1234</div>
+    <div class="history-item" onclick="location.href='control.html'">・さつき1234</div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-item">
+      <img src="https://img.icons8.com/ios-filled/50/000000/home.png" alt="ホーム">
+      ホーム
+    </div>
+    <div class="footer-item">
+      <img src="https://img.icons8.com/ios-filled/50/000000/message-group.png" alt="リクエスト">
+      リクエスト
+    </div>
+    <div class="footer-item">
+      <img src="https://img.icons8.com/ios-filled/50/000000/settings.png" alt="設定">
+      設定
+    </div>
+  </div>
+
+</body>
+</html>
+  <script>
+    document.querySelectorAll('.history-item').forEach(item => {
+      item.addEventListener('click', function() {
+        document.querySelectorAll('.history-item').forEach(i => i.classList.remove('selected'));
+        this.classList.add('selected');
+      });
+    });
+     
+  </script>
+</body>
+</html>
+
+<div class="footer">
+  <div class="footer-item" onclick="location.href='index.html'">
+    <img src="https://img.icons8.com/ios-filled/50/000000/home.png" alt="ホーム">
+    ホーム
+  </div>
+  <div class="footer-item" onclick="location.href='request.html'">
+    <img src="https://img.icons8.com/ios-filled/50/000000/message-group.png" alt="リクエスト">
+    リクエスト
+  </div>
+  <div class="footer-item" onclick="location.href='settings.html'">
+    <img src="https://img.icons8.com/ios-filled/50/000000/settings.png" alt="設定">
+    設定
+  </div>
+</div>
+
