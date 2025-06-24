@@ -168,3 +168,17 @@ body {
   cursor: pointer;
 }
 
+.wind {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 1rem auto;
+  background-color: gray;
+  animation: windPulse 1.5s infinite;
+}
+
+@keyframes windPulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 0.3; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
