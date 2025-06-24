@@ -31,3 +31,17 @@ let currentTemp = 25;
 
     document.getElementById('temperature').textContent = currentTemp;
   }
+// 温度変更関数
+  function setMode(mode) {
+  document.getElementById("mode-display").textContent = `モード：${mode}`;
+
+  const wind = document.getElementById("wind-effect");
+
+  const modeColors = {
+    "暖房": "#f44336",   // 赤
+    "冷房": "#2196f3",   // 青
+    "除湿": "#4caf50",   // 緑
+    "送風": "#9e9e9e"    // グレー
+  };
+
+  wind.style.backgroundColor = modeColors[mode] || "gray";
