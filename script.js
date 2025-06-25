@@ -31,6 +31,8 @@ let currentTemp = 25;
 
     document.getElementById('temperature').textContent = currentTemp;
   }
+
+
 // 温度変更関数
   function setMode(mode) {
   document.getElementById("mode-display").textContent = `モード：${mode}`;
@@ -45,3 +47,7 @@ let currentTemp = 25;
   };
 
   wind.style.backgroundColor = modeColors[mode] || "gray";
+
+  // 例：JSONなどに保存する場合
+  // saveAirconStatus({ mode, temperature: currentTemp });
+}
