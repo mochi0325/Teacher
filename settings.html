@@ -3,67 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ホーム</title>
+  <title data-i18n="settingsTitle">設定</title>
   <link rel="stylesheet" href="style.css">
-  
+  <script src="lang.js"></script>
 </head>
-<body>
+<body class="fade-in">
 
   <div class="header">
-    <div class="menu-icon" onclick="location.href='index.html'"><</div>
-  　設定
+    <div class="menu-icon" onclick="location.href='index.html'">←</div>
+    <span data-i18n="settingsTitle">設定</span>
   </div>
 
-  
+  <main style="padding: 1rem;">
+    <label for="langSelect" data-i18n="languageLabel">言語設定:</label>
+    <select id="langSelect" class="lang">
+      <option value="ja">日本語</option>
+      <option value="en">English</option>
+      <option value="zh">中文（简体）</option>
+      <option value="es">Español</option>
+    </select>
+  </main>
 
-<select id="langSelect" class="lang">
-  <option value="ja">日本語</option</div>
-  <option value="en">English</option>
-</select>
-
-
-<body class="fade-in"></body>
-  
   <div class="footer">
-    <div class="footer-item">
+    <div class="footer-item" onclick="location.href='index.html'">
       <img src="https://img.icons8.com/ios-filled/50/000000/home.png" alt="ホーム">
-      ホーム
+      <span data-i18n="home">ホーム</span>
     </div>
-    <div class="footer-item">
+    <div class="footer-item" onclick="location.href='request.html'">
       <img src="https://img.icons8.com/ios-filled/50/000000/message-group.png" alt="リクエスト">
-      リクエスト
+      <span data-i18n="request">リクエスト</span>
     </div>
-    <div class="footer-item">
+    <div class="footer-item" onclick="location.href='settings.html'">
       <img src="https://img.icons8.com/ios-filled/50/000000/settings.png" alt="設定">
-      設定
+      <span data-i18n="settingsTitle">設定</span>
     </div>
   </div>
 
-</body>
-</html>
   <script>
-    document.querySelectorAll('.history-item').forEach(item => {
-      item.addEventListener('click', function() {
-        document.querySelectorAll('.history-item').forEach(i => i.classList.remove('selected'));
-        this.classList.add('selected');
-      });
+    const langSelect = document.getElementById("langSelect");
+
+    langSelect.value = localStorage.getItem("lang") || "ja";
+
+    langSelect.addEventListener("change", () => {
+      const selectedLang = langSelect.value;
+      localStorage.setItem("lang", selectedLang);
+      applyTranslation(selectedLang);
     });
-     
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const currentLang = localStorage.getItem("lang") || "ja";
+      langSelect.value = currentLang;
+      applyTranslation(currentLang);
+    });
   </script>
+
 </body>
 </html>
-
-<div class="footer">
-  <div class="footer-item" onclick="location.href='index.html'">
-    <img src="https://img.icons8.com/ios-filled/50/000000/home.png" alt="ホーム">
-    ホーム
-  </div>
-  <div class="footer-item" onclick="location.href='request.html'">
-    <img src="https://img.icons8.com/ios-filled/50/000000/message-group.png" alt="リクエスト">
-    リクエスト
-  </div>
-  <div class="footer-item" onclick="location.href='settings.html'">
-    <img src="https://img.icons8.com/ios-filled/50/000000/settings.png" alt="設定">
-    設定
-  </div>
-</div>
