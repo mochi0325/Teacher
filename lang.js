@@ -1,0 +1,108 @@
+const translations = {
+  ja: {
+    settingsTitle: "設定",
+    languageLabel: "言語設定:",
+    home: "ホーム",
+    request: "リクエスト",
+    home: "ホーム",
+    request: "リクエスト",
+    settingsTitle: "設定",
+    connect: "接続する",
+    languageLabel: "言語設定:",
+    airconControlTitle: "エアコン操作",
+    deviceName: "さつき1234",
+    heating: "暖房",
+    cooling: "冷房",
+    dry: "除湿",
+    fan: "送風",
+    modeDisplay: "モード：--",
+    goToRequest: "リクエストへ",
+    home: "ホーム",
+    request: "リクエスト",
+    settingsTitle: "設定",
+     request: "リクエスト",
+    home: "ホーム",
+    settingsTitle: "設定",
+    studentId: "学籍番号",
+    name: "名前",
+    seatLabel: "座席",
+    content: "内容"
+  },
+  en: {
+    settingsTitle: "Settings",
+    languageLabel: "Language:",
+    home: "Home",
+    request: "Request",
+    home: "Home",
+    request: "Request",
+    settingsTitle: "Settings",
+    connect: "Connect",
+    languageLabel: "Language:",
+    airconControlTitle: "Air Conditioner Control",
+    deviceName: "Satsuki1234",
+    heating: "Heat",
+    cooling: "Cool",
+    dry: "Dry",
+    fan: "Fan",
+    modeDisplay: "Mode: --",
+    goToRequest: "Go to Request",
+    home: "Home",
+    request: "Request",
+    settingsTitle: "Settings",
+    request: "Request",
+    home: "Home",
+    settingsTitle: "Settings",
+    studentId: "Student ID",
+    name: "Name",
+    seatLabel: "Seat",
+    content: "Message",
+  },
+  zh: {
+    settingsTitle: "设置",
+    languageLabel: "语言：",
+    home: "首页",
+    request: "请求",
+    connect: "连接",
+    airconControlTitle: "空调控制",
+    deviceName: "さつき1234",
+    heating: "制热",
+    cooling: "制冷",
+    dry: "除湿",
+    fan: "送风",
+    modeDisplay: "模式：--",
+    goToRequest: "前往请求",
+    studentId: "学号",
+    name: "姓名",
+    seatLabel: "座位",
+    content: "内容"
+  },
+  es: {
+    settingsTitle: "Configuración",
+    languageLabel: "Idioma:",
+    home: "Inicio",
+    request: "Solicitud",
+    connect: "Conectar",
+    airconControlTitle: "Control del aire acondicionado",
+    deviceName: "Satsuki1234",
+    heating: "Calor",
+    cooling: "Frío",
+    dry: "Seco",
+    fan: "Ventilador",
+    modeDisplay: "Modo: --",
+    goToRequest: "Ir a Solicitud",
+    studentId: "ID Estudiante",
+    name: "Nombre",
+    seatLabel: "Asiento",
+    content: "Mensaje"
+  }
+};
+
+function applyTranslation(lang) {
+  const t = translations[lang];
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (t[key]) {
+      el.textContent = t[key];
+    }
+  });
+}
