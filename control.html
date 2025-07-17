@@ -1,82 +1,73 @@
-<!-- control.html -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>エアコン操作</title>
+  <title data-i18n="airconControlTitle">エアコン操作</title>
   <link rel="stylesheet" href="style.css">
+  <script src="lang.js"></script>
 </head>
-<body>
-
-  
-
-<div id="status-display"></div>
-<script>
-  fetch('aircon.json')
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("status-display").textContent = `${data.temperature}℃ / ${data.mode}`;
-    });
-</script>
-
-<body class="fade-in"></body>
+<body class="fade-in">
 
   <div class="header">
     <div class="menu-icon" onclick="location.href='index.html'"><</div>
-    さつき1234
+    <span data-i18n="deviceName">さつき1234</span>
   </div>
-   <div class="main">
-    <img src="20240421020014.png" alt="エアコン" style="width: 100px;" />
-      <!-- main内に追加 -->
-<div id="wind-effect" class="wind"></div>
-    <div id="temp-display" ></div>
+
+  <div class="main">
+    <img src="20240421020014.png" alt="Aircon" style="width: 100px;" />
+    <div id="temp-display"></div>
 
     <div class="temperature-control">
-  <button onclick="changeTemp(-1)">－</button>
-  <span id="temperature">25</span>℃  
-  <button onclick="changeTemp(1)">＋</button>
-</div>
-
-
-
-
-    <div>
-      <button class="mode" style="background-color: #f44336; color: white;" onclick="setMode('暖房')">暖房</button>
-      <button class="mode" style="background-color: #2196f3; color: white;" onclick="setMode('冷房')">冷房</button><br>
-      <button class="mode" style="background-color: #4caf50; color: white;" onclick="setMode('除湿')">除湿</button>
-      <button class="mode" onclick="setMode('送風')">送風</button>
+      <button onclick="changeTemp(-1)">－</button>
+      <span id="temperature">25</span>℃
+      <button onclick="changeTemp(1)">＋</button>
     </div>
 
-    <div class="status" id="mode-display">モード：--</div>
+    <!-- 風の色を変えるブロック -->
+    <div id="wind-effect" class="wind"></div>
 
-    <button onclick="location.href='request.html'" style="margin-top:10px;">リクエストへ</button>
-    
+    <div>
+      <button class="mode" style="background-color: #f44336; color: white;" onclick="setMode('暖房')" data-i18n="heating">暖房</button>
+      <button class="mode" style="background-color: #2196f3; color: white;" onclick="setMode('冷房')" data-i18n="cooling">冷房</button><br>
+      <button class="mode" style="background-color: #4caf50; color: white;" onclick="setMode('除湿')" data-i18n="dry">除湿</button>
+      <button class="mode" onclick="setMode('送風')" data-i18n="fan">送風</button>
+    </div>
+
+    <div class="status" id="mode-display" data-i18n="modeDisplay">モード：--</div>
+
+    <button onclick="location.href='request.html'" style="margin-top:10px;" data-i18n="goToRequest">リクエストへ</button>
   </div>
 
   <div class="footer">
     <div class="footer-item" onclick="location.href='index.html'">
       <img src="https://img.icons8.com/ios-filled/50/000000/home.png" />
-      ホーム
+      <span data-i18n="home">ホーム</span>
     </div>
     <div class="footer-item" onclick="location.href='request.html'">
       <img src="https://img.icons8.com/ios-filled/50/000000/message-group.png" />
-      リクエスト
+      <span data-i18n="request">リクエスト</span>
       <span class="badge">2</span>
     </div>
     <div class="footer-item" onclick="location.href='settings.html'">
       <img src="https://img.icons8.com/ios-filled/50/000000/settings.png" />
-      設定
-    
-</div>
-
-</div>
-
+      <span data-i18n="settingsTitle">設定</span>
     </div>
-    
-
   </div>
-    <script src="script.js"></script>
+
+  <script>
+    fetch('aircon.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("status-display").textContent = `${data.temperature}℃ / ${data.mode}`;
+      });
+
+    // 多言語化の初期適用
+    document.addEventListener("DOMContentLoaded", () => {
+      const lang = localStorage.getItem("lang") || "ja";
+      applyTranslation(lang);
+    });
+  </script>
+
+  <script src="script.js"></script>
 </body>
 </html>
-  
-
